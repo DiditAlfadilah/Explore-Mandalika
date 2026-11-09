@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Mandalika - Pesona Pantai Kuta Lombok</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (for layout utilities) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0b2545',
+                            teal: '#134074',
+                            cyan: '#00a896',
+                            gold: '#f4a261',
+                            sand: '#e9c46a',
+                            light: '#f8f9fa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="relative">
+
+    <!-- =========================================================
+         NAVIGATION BAR
+         ========================================================= -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-teal-600 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid me-0.5 fa-umbrella-beach"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading text-xl font-extrabold text-white tracking-wide">EXPLORE</span>
+                        <span class="font-heading text-xl font-extrabold text-amber-400 block -mt-1">MANDALIKA</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-amber-400 font-medium transition-colors">Beranda</a>
+                    <a href="#attractions" class="text-gray-200 hover:text-amber-400 font-medium transition-colors">Daya Tarik</a>
+                    <a href="#gallery" class="text-gray-200 hover:text-amber-400 font-medium transition-colors">Galeri & Video</a>
+                    <a href="#info" class="text-gray-200 hover:text-amber-400 font-medium transition-colors">Info & Lokasi</a>
+                </div>
+
+                <!-- Audio Toggle Control (Navbar) -->
+                <div class="flex items-center space-x-4">
+                    <button id="audioToggleBtn" onclick="toggleAudio()" class="flex items-center space-x-2 bg-slate-800/80 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2 rounded-full transition-all text-sm font-medium shadow-md">
+                        <i id="audioIcon" class="fa-solid fa-volume-xmark text-lg"></i>
+                        <span id="audioText" class="hidden sm:inline">Backsound</span>
+                        <div id="audioVisualizer" class="flex items-center space-x-0.5 ml-1">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-white hover:text-amber-400 py-2 font-medium">Beranda</a>
+            <a href="#attractions" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-amber-400 py-2 font-medium">Daya Tarik</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-amber-400 py-2 font-medium">Galeri & Video</a>
+            <a href="#info" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-amber-400 py-2 font-medium">Info & Lokasi</a>
+        </div>
+    </nav>
+
+
+    <!-- =========================================================
+         HERO SECTION (BERANDA)
+         ========================================================= -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Overlay Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Pantai Kuta Mandalika" 
+                 class="w-full h-full object-cover object-center filter brightness-75 scale-105 transform transition-transform duration-1000"
+                 onerror="this.src='https://placehold.co/1920x1080/0b2545/ffffff?text=Pantai+Kuta+Mandalika'">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-slate-900/60"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white mt-10">
+            <span class="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md border border-amber-400/40 text-amber-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6 animate-pulse-subtle">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Pujut, Lombok Tengah, NTB</span>
+            </span>
+            
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-gradient">
+                Pesona Nirwana Pesisir Selatan Lombok
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                Nikmati keajaiban alam pantai berpasir unik berbentuk merica, perairan jernih bernuansa turkis, serta pemandangan bukit eksotis di Pantai Kuta Mandalika.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#attractions" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-amber-500/30 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                    <span>Jelajahi Sekarang</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#gallery" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-semibold px-8 py-4 rounded-full transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-play text-amber-400"></i>
+                    <span>Tonton Video Prospektus</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Floating Scroll Down Indicator -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#attractions" class="text-white/70 hover:text-white p-2">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         DAYA TARIK (ATTRACTIONS) SECTION
+         ========================================================= -->
+    <section id="attractions" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Title Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-600 font-bold tracking-wider text-sm uppercase mb-2">Destinasi Unggulan</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+                    Keunikan Daya Tarik Kuta Mandalika
+                </h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-teal-600 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-4 text-base">
+                    Klik pada setiap kartu untuk mempelajari detail cerita dan pesona luar biasa dari masing-masing spot populer.
+                </p>
+            </div>
+
+            <!-- Attractions Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: Pasir Merica -->
+                <div class="attraction-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col justify-between cursor-pointer group" onclick="openModal('merica')">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
+                             alt="Pasir Merica Kuta Mandalika" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-slate-900/70 backdrop-blur-md text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Unik</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-heading text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                                Pasir Berunuk (Merica)
+                            </h4>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Butiran pasir unik membulat menyerupai merica yang memberikan sensasi relaksasi alami saat dipijak tanpa alas kaki.
+                            </p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-semibold text-amber-600">
+                            <span>Pelajari Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Bukit Merese -->
+                <div class="attraction-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col justify-between cursor-pointer group" onclick="openModal('merese')">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80" 
+                             alt="Bukit Merese Viewpoint" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-slate-900/70 backdrop-blur-md text-teal-400 text-xs font-semibold px-3 py-1 rounded-full">Panorama</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-heading text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                                Bukit Merese & Sunset
+                            </h4>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Perbukitan hijau eksotis yang memagari pantai, menyuguhkan pemandangan matahari terbenam paling romantis di Lombok.
+                            </p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-semibold text-amber-600">
+                            <span>Pelajari Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Olahraga Air & Surfing -->
+                <div class="attraction-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col justify-between cursor-pointer group" onclick="openModal('surf')">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=600&q=80" 
+                             alt="Surfing & Water Sports" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-slate-900/70 backdrop-blur-md text-amber-400 text-xs font-semibold px-3 py-1 rounded-full">Aktivitas</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-heading text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                                Surfing & Water Sports
+                            </h4>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Surga ombak kelas dunia bagi para peselancar pemula maupun profesional dari berbagai belahan mancanegara.
+                            </p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-semibold text-amber-600">
+                            <span>Pelajari Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Tradisi Bau Nyale -->
+                <div class="attraction-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col justify-between cursor-pointer group" onclick="openModal('nyale')">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" 
+                             alt="Tradisi Bau Nyale" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-slate-900/70 backdrop-blur-md text-rose-400 text-xs font-semibold px-3 py-1 rounded-full">Budaya</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-heading text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors mb-2">
+                                Festivalk & Bau Nyale
+                            </h4>
+                            <p class="text-gray-600 text-sm line-clamp-3">
+                                Upacara adat legendaris Sasak dalam menangkap cacing laut warna-warni yang dipercaya sebagai jelmaan Putri Mandalika.
+                            </p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-100 text-xs font-semibold text-amber-600">
+                            <span>Pelajari Selengkapnya</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         GALERI INTERAKTIF & VIDEO (MULTIMEDIA)
+         ========================================================= -->
+    <section id="gallery" class="py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-400 font-bold tracking-wider text-sm uppercase mb-2">Galeri Multimedia</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-extrabold text-white">
+                    Visualisasi Keindahan Alam
+                </h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-teal-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Layout: Slider on Left, Video on Right -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Image Slider (7 Cols) -->
+                <div class="lg:col-span-7 bg-slate-800/80 p-4 rounded-3xl border border-slate-700 shadow-2xl">
+                    <div class="flex items-center justify-between mb-4 px-2">
+                        <h4 class="font-heading text-lg font-bold text-amber-400 flex items-center space-x-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Foto Galeri Carousel</span>
+                        </h4>
+                        <span id="slideCounter" class="text-xs bg-slate-700 text-gray-300 px-3 py-1 rounded-full font-mono">1 / 4</span>
+                    </div>
+
+                    <!-- Slider Container -->
+                    <div class="relative h-[320px] sm:h-[400px] rounded-2xl overflow-hidden group">
+                        <!-- Slide Images -->
+                        <div id="sliderTrack" class="w-full h-full relative">
+                            <img id="currentSlideImg" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80" 
+                                 class="w-full h-full object-cover slide-fade" alt="Pantai Mandalika 1">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <h5 id="slideTitle" class="text-xl font-bold text-white mb-1">Garis Pantai Kuta Mandalika</h5>
+                                <p id="slideDesc" class="text-sm text-gray-300">Pemandangan gradasi laut biru dan pasir putih yang membentang luas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Prev/Next Buttons -->
+                        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-amber-500 hover:text-slate-950 text-white backdrop-blur-md flex items-center justify-center transition-all opacity-80 group-hover:opacity-100">
+                            <i class="fa-solid fa-chevron-left text-lg"></i>
+                        </button>
+                        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-amber-500 hover:text-slate-950 text-white backdrop-blur-md flex items-center justify-center transition-all opacity-80 group-hover:opacity-100">
+                            <i class="fa-solid fa-chevron-right text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Thumbnail Dots -->
+                    <div class="flex justify-center items-center space-x-3 mt-4" id="thumbnailDots">
+                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-amber-400 transition-all"></button>
+                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-slate-600 transition-all"></button>
+                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-slate-600 transition-all"></button>
+                        <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-slate-600 transition-all"></button>
+                    </div>
+                </div>
+
+                <!-- Video Player Container (5 Cols) -->
+                <div class="lg:col-span-5 bg-slate-800/80 p-4 rounded-3xl border border-slate-700 shadow-2xl">
+                    <div class="flex items-center justify-between mb-4 px-2">
+                        <h4 class="font-heading text-lg font-bold text-amber-400 flex items-center space-x-2">
+                            <i class="fa-solid fa-video"></i>
+                            <span>Video Keindahan Pantai</span>
+                        </h4>
+                        <span class="text-xs bg-red-500/20 text-red-400 px-2.5 py-1 rounded-full font-medium border border-red-500/30">HD Video</span>
+                    </div>
+
+                    <!-- Video Embed Frame -->
+                    <div class="relative aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-slate-700 shadow-inner">
+                        <iframe class="w-full h-full" 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" 
+                                title="Video Promosi Kuta Mandalika" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-slate-900/60 rounded-xl border border-slate-700/50">
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>
+                            Video ini menampilkan cuplikan udara (*drone footage*) dari garis pantai Mandalika, Kawasan Ekonomi Khusus (KEK), dan bukit-bukit cantik sekitarnya.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         INFO & LOKASI (PETAMAP & AKSEBILITAS)
+         ========================================================= -->
+    <section id="info" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-600 font-bold tracking-wider text-sm uppercase mb-2">Panduan Pengunjung</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+                    Informasi Praktis & Lokasi
+                </h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-teal-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Layout: Info Cards & Google Map -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Info Grid Details (5 Cols) -->
+                <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
+                    
+                    <!-- Card 1: Jam Operasional -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-heading font-bold text-slate-900 text-lg">Jam Operasional</h5>
+                            <p class="text-gray-600 text-sm mt-1">Buka 24 Jam Setiap Hari (Waktu terbaik berkunjung: 07.00 - 10.00 WITA & 16.00 - 18.30 WITA).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Harga Tiket -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-heading font-bold text-slate-900 text-lg">Tiket & Retribusi</h5>
+                            <p class="text-gray-600 text-sm mt-1">
+                                Retribusi Parkir: Motor Rp 5.000 | Mobil Rp 10.000. Tiket masuk kawasan pantai gratis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Fasilitas Lengkap -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-heading font-bold text-slate-900 text-lg">Fasilitas Penunjang</h5>
+                            <p class="text-gray-600 text-sm mt-1">
+                                Area Parkir Luas, Musholla, Toilet & Kamar Bilas, Cafe/Restoran Pesisir, Gazebo, & Penyewaan Board Surf.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Aksesibilitas -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-plane-arrival"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-heading font-bold text-slate-900 text-lg">Jarak dari Bandara</h5>
+                            <p class="text-gray-600 text-sm mt-1">
+                                Berjarak sekitar 20 km dari Bandara Internasional Lombok (BIL) atau hanya 25 menit perjalanan darat.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Google Map Embed (7 Cols) -->
+                <div class="lg:col-span-7 bg-white p-4 rounded-3xl shadow-md border border-slate-200/80 flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-3 px-2">
+                        <h4 class="font-heading font-bold text-slate-900 flex items-center space-x-2">
+                            <i class="fa-solid fa-map-location-dot text-amber-600"></i>
+                            <span>Peta Lokasi Interaktif</span>
+                        </h4>
+                        <a href="https://maps.google.com/?q=Pantai+Kuta+Mandalika" target="_blank" class="text-xs text-amber-600 hover:underline font-semibold">
+                            Buka di Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Embedded Google Map -->
+                    <div class="w-full h-[380px] rounded-2xl overflow-hidden border border-slate-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.86532488114!2d116.2796193748557!3d-8.892095691174092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda4b72ec8bdf9%3A0x6b77c8e9b62f1c84!2sPantai%20Kuta%20Mandalika!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                                class="w-full h-full" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         POP-UP MODAL INTERAKTIF (DETAIL SPOT)
+         ========================================================= -->
+    <div id="infoModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl transform scale-95 border border-slate-100">
+            <!-- Modal Header Image -->
+            <div class="relative h-64">
+                <img id="modalImage" src="" alt="Detail Spot" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center backdrop-blur-md transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-6 right-6">
+                    <span id="modalBadge" class="bg-amber-500 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Spot Spesial</span>
+                    <h3 id="modalTitle" class="text-2xl font-heading font-extrabold text-white mt-1">Judul Spot</h3>
+                </div>
+            </div>
+
+            <!-- Modal Body Text -->
+            <div class="p-6 sm:p-8 space-y-4">
+                <p id="modalDescription" class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Deskripsi lengkap mengenai spot wisata akan dimuat di sini.
+                </p>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/60 flex items-center justify-between">
+                    <div class="flex items-center space-x-3 text-slate-700 text-xs sm:text-sm">
+                        <i class="fa-solid fa-camera text-amber-600 text-lg"></i>
+                        <span>Spot sangat direkomendasikan untuk fotografi</span>
+                    </div>
+                    <button onclick="closeModal()" class="bg-slate-900 hover:bg-amber-600 hover:text-slate-950 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-amber-500 flex items-center justify-center text-slate-950 font-bold text-lg">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                        </div>
+                        <span class="font-heading text-lg font-extrabold tracking-wide text-white">EXPLORE MANDALIKA</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Media informasi & promosi interaktif yang dikembangkan untuk memperkenalkan keindahan Pantai Kuta Mandalika Lombok kepada dunia.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="font-heading font-bold text-amber-400 mb-4 text-base">Tautan Cepat</h5>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#home" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#attractions" class="hover:text-amber-400 transition-colors">Daya Tarik Utama</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition-colors">Galeri & Video</a></li>
+                        <li><a href="#info" class="hover:text-amber-400 transition-colors">Informasi & Lokasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academic Info Project -->
+                <div class="space-y-3 bg-slate-900 p-5 rounded-2xl border border-slate-800">
+                    <h5 class="font-heading font-bold text-amber-400 text-sm uppercase tracking-wider">Project UTS Sistem Multimedia</h5>
+                    <p class="text-xs text-gray-400">Program Studi S1 Ilmu Komputer</p>
+                    <p class="text-xs text-gray-400">Universitas Bumigora Mataram</p>
+                    <div class="pt-2 border-t border-slate-800 text-[11px] text-gray-500">
+                        Dosen Pengajar: Melati Rosanensi, M.Kom
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400">
+                <p>&copy; 2026 Explore Mandalika. Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <span class="hover:text-amber-400 transition-colors">Media Interaktif</span>
+                    <span>•</span>
+                    <span class="hover:text-amber-400 transition-colors">HTML / CSS / JS</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
